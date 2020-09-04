@@ -7,7 +7,8 @@ function setup() {
 
 function draw() {
   noFill();
-  stroke(0);
+  let c3 = color('e0ece4')
+  stroke(c3);
   strokeWeight(2);
   rect(25,25,550,550);
   rect(50,50,500,500);
@@ -16,17 +17,16 @@ function draw() {
   rect(125,125,350,350);
   
   noStroke();
-  let c2 = color('#e0ece4');
   let c1 = color('#056674');
   fill(0);
   triangle(50, 50, 400, 50, 50, 400);
   triangle(200, 550, 550, 550, 550, 200);
 
-  fill(c2);
+  fill(c3);
   noStroke();
   rect(150,150,300,300);
   
-  stroke(0);
+  stroke(c3);
   strokeWeight(1);
   fill(0);
   line(0, 0, 600, 600);
