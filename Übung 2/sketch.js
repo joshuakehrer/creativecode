@@ -4,8 +4,8 @@ function setup() {
 }
 
 function draw() {
-  let c1 = color('#1a1a2e')
-  let c2 = color('#e94560')
+  let c1 = color('#557571')
+  let c2 = color('#ff7e67')
   let c3 = color('#fddb3a')
   background(c1);
   
@@ -43,9 +43,17 @@ function draw() {
   a+=45;
   ellipse(a,a,a,a);
 
-  //kreis 8
+  //kreis 8.1
   a+=60;
   ellipse(a,a,a,a);
+
+  //kreis 8.2
+  a+=60;
+  ellipse(a+200,a-80,a,a);
+
+  //kreis 8.3
+  a+=60;
+  ellipse(a-200,a+80,a-60,a-60);
 
   //kreis 9
   a+=70;
@@ -61,6 +69,10 @@ function draw() {
   
   //kreis 13
   a+=120;
+  ellipse(a,a,a,a);
+
+  //kreis 14
+  a+=150;
   ellipse(a,a,a,a);
   
   line(0, 0, 700, 700,);
