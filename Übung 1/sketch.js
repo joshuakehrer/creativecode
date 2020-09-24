@@ -17,7 +17,7 @@ function draw() {
   rect(125,125,350,350);
   
   noStroke();
-  let c1 = color('#056674');
+  let c1 = color('#e8e8e8');
   fill(0);
   triangle(50, 50, 400, 50, 50, 400);
   triangle(200, 550, 550, 550, 550, 200);
