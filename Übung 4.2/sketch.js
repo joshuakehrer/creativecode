@@ -1,8 +1,7 @@
 
-var anz = 10;
-var kmh = 40;
-var niederschlag = 5;
-var dichte = 40;
+var anz = 8;
+var kmh = 50;
+var anzahl =40;
 
 var gui;
 
@@ -10,9 +9,9 @@ var gui;
 function setup() {
   createCanvas(windowWidth,windowHeight);
   
-  sliderRange(0,100,1);
+  sliderRange(0,60,1);
   gui = createGui('p5.gui')
-  gui.addGlobals('anz','kmh','niederschlag','dichte');
+  gui.addGlobals('anz','kmh','anzahl');
 }
 
 function draw() {
@@ -34,31 +33,36 @@ function draw() {
   noFill();
 
   for (let i = 1; i <= anz; i++) {
-    ellipse(800, 580, kmh * i, kmh * i);
-  }
-  stroke(c7);
-  for (let i = 1; i <= anz; i++) {
-    ellipse(400, 580, kmh * i, kmh * i);
+    ellipse(800, 680, kmh * i, kmh * i);
   }
   stroke(c4);
   for (let i = 1; i <= anz; i++) {
-    ellipse(600, 350, kmh * i, kmh * i);
+    ellipse(800, 280, kmh * i, kmh * i);
+  }
+  stroke(c4);
+  for (let i = 1; i <= anz; i++) {
+    ellipse(400, 680, kmh * i, kmh * i);
+  }
+  stroke(c2);
+  for (let i = 1; i <= anz; i++) {
+    ellipse(400, 280, kmh * i, kmh * i);
+  }
+  stroke(c2);
+  for (let i = 1; i <= anz; i++) {
+    ellipse(1200, 280, kmh * i, kmh * i);
+  }
+  stroke(c4);
+  for (let i = 1; i <= anz; i++) {
+    ellipse(1200, 680, kmh * i, kmh * i);
   }
   
-  noStroke();
-  fill(c4);
-  for (let i = 1; i <= dichte; i++) {
-    rect(1200, 100, niederschlag * i, niederschlag * i,40);
-  }
-  fill(c2);
-  for (let i = 1; i <= dichte; i++) {
-    rect(1100, 200, niederschlag * i, niederschlag * i,40);
-  }
-  fill(c7);
-  for (let i = 1; i <= dichte; i++) {
-    rect(1250, 350, niederschlag * i, niederschlag * i,40);
-  }
 
+  noStroke();
+  fill(c7);
+  randomSeed(50);
+  for (let n = 0; n < anzahl; n++) {
+    ellipse(random(width), random(height), 30, 30,5);
+  }
 
 }
 
