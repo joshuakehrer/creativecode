@@ -1,69 +1,57 @@
 
-var anz = 8;
-var kmh = 50;
-var anzahl =40;
+var windstärke = 30;
+var windstärkeMax = 70;
+var umfang = 8;
+var umfangMax = 20;
+var niederschlag = 45;
+var temperatur = 0;
+var temperaturMin = -10;
+var temperaturMax = 35;
 
 var gui;
 
+let grow = 0
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  
-  sliderRange(0,60,1);
-  gui = createGui('p5.gui')
-  gui.addGlobals('anz','kmh','anzahl');
+  angleMode(DEGREES);
+  sliderRange(0,100,1);
+  gui = createGui('Wetter GUI')
+  gui.addGlobals('windstärke','umfang','niederschlag','temperatur');
 }
 
 function draw() {
-  let c1 = color ('#2F2F2F')
-  background(c1);
-  
-  //blue
-  let c2 = color('#45757E');
-  let c3 = color('#5896A2');
-  let c4 = color('#91B8BF');
+  let c1 = lerpColor(color('#93A8C8'), color('#D66262'), map(temperatur, -5, 35, 0, 1));
+  let c2 = lerpColor(color('#5369C1'), color('#A01A1A'), map(temperatur, -5, 35, 0, 1));
+  let c3 = lerpColor(color('#2A3F69'), color('#A01A1A'), map(temperatur, -5, 35, 0, 1));
+  let c4 = lerpColor(color('#98C8DD'), color('#A01A1A'), map(temperatur, -5, 35, 0, 1));
+  background(c3);
 
-  //purple
-  let c5 = color('#705974');
-  let c6 = color('#857788');
-  let c7 = color('#B7AEB9');
-
-  stroke(c2);
+  stroke(c4);
   strokeWeight(2);
   noFill();
+  randomSeed(20);
+  for (let x =0; x <= width; x = x + 300) {
+  for (let y =0; y <= height; y = y + 300){
 
-  for (let i = 1; i <= anz; i++) {
-    ellipse(800, 680, kmh * i, kmh * i);
-  }
-  stroke(c4);
-  for (let i = 1; i <= anz; i++) {
-    ellipse(800, 280, kmh * i, kmh * i);
-  }
-  stroke(c4);
-  for (let i = 1; i <= anz; i++) {
-    ellipse(400, 680, kmh * i, kmh * i);
-  }
-  stroke(c2);
-  for (let i = 1; i <= anz; i++) {
-    ellipse(400, 280, kmh * i, kmh * i);
-  }
-  stroke(c2);
-  for (let i = 1; i <= anz; i++) {
-    ellipse(1200, 280, kmh * i, kmh * i);
-  }
-  stroke(c4);
-  for (let i = 1; i <= anz; i++) {
-    ellipse(1200, 680, kmh * i, kmh * i);
-  }
-  
+  let toggle = int(random (0, 4));
+
+  if (toggle !=3){
+    for (let i = 1; i <= umfang; i++) {
+      ellipse(x, y, windstärke * i + map(sin(grow), -1, 1, -10, 15), windstärke * i + map(sin(grow), -1, 1, -10, 15));
+      grow += 0.01;
+      }
+    }
+   }
+  }  
 
   noStroke();
-  fill(c7);
-  randomSeed(50);
-  for (let n = 0; n < anzahl; n++) {
-    ellipse(random(width), random(height), 30, 30,5);
+  for (let n = 0; n < niederschlag; n++) {
+    fill(c1);
+    rect(random(width), random(height), 40, 40, 2, 20);
+    fill(c2);
+    rect(random(width), random(height), 65, 65, 2, 35);
   }
-
 }
 
 
