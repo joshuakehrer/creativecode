@@ -12,8 +12,8 @@ var gui;
 
 let grow = 0
 
-function setup() {
 //CANVAS
+function setup() {
   createCanvas(windowWidth,windowHeight);
   angleMode(DEGREES);
   
@@ -23,8 +23,8 @@ function setup() {
   gui.addGlobals('windstärke','umfang','niederschlag','temperatur');
 }
 
-function draw() {
 //COLORS
+function draw() {
   let c1 = lerpColor(color('#93A8C8'), color('#D66262'), map(temperatur, -5, 35, 0, 1));
   let c2 = lerpColor(color('#5369C1'), color('#B03434'), map(temperatur, -5, 35, 0, 1));
   let c3 = lerpColor(color('#2A3F69'), color('#7B2525'), map(temperatur, -5, 35, 0, 1));
