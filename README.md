@@ -10,4 +10,4 @@ Im Verlauf des Moduls vertieften wir unser Können in diversen Übungen im p5.js
 Viel Spass beim ausprobieren!
 
 
-#### Joshua Kehrer, IAD2019, Creative Code
+##### Joshua Kehrer, IAD2019, Creative Code
